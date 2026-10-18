@@ -595,10 +595,12 @@ $("search").oninput = (e) => { keyword = e.target.value; render(); };
 $("random").onclick = () => {
   const list = filtered();
   if (!list.length) return;
-  $("list").innerHTML = item(list[Math.floor(Math.random() * list.length)]);
+
+  $("list").innerHTML =
+    item(list[Math.floor(Math.random() * list.length)]);
+
   $("count").textContent = "오늘의 추천";
   $("list").scrollIntoView();
 };
-render();
-};
+
 render();
