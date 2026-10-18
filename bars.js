@@ -50,7 +50,7 @@
 
 <script>
 (function(){
-  const data = [
+  const bars = [
   {
     "name": "비스트로302",
     "area": "산본",
