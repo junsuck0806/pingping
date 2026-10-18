@@ -5,7 +5,6 @@ let cat = "전체", area = "전체", keyword = "";
 const esc = (s = "") => String(s).replace(/[&<>"']/g, (c) =>
   ({ "&": "&", "<": "<", ">": ">", '"': """, "'": "'" }[c]));
 
-function filtered()
 const restaurants = [
   // ===== 산본 =====
   {
@@ -553,7 +552,8 @@ const restaurants = [
     image: ""
   }
 ];
- {
+
+function filtered() {
   const k = keyword.trim().toLowerCase();
   return restaurants.filter((r) =>
     (cat === "전체" || r.category === cat) &&
@@ -598,5 +598,7 @@ $("random").onclick = () => {
   $("list").innerHTML = item(list[Math.floor(Math.random() * list.length)]);
   $("count").textContent = "오늘의 추천";
   $("list").scrollIntoView();
+};
+render();
 };
 render();
