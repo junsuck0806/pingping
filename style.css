@@ -1,37 +1,124 @@
-:root{--ink:#1f2a24;--sub:#5c675f;--azalea:#d6336c;--green:#2f6f4e;--tint:#fbeaf0;--line:#dfe5df;--bg:#fbfbf9}
-*{box-sizing:border-box;margin:0}
-body{font-family:"Noto Sans KR",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
-.wrap{max-width:880px;margin:0 auto}
-.hero{background:var(--green);color:#fff;padding:64px 20px 44px}
-.hero h1{font-family:"Noto Serif KR",serif;font-size:clamp(2rem,6vw,3.4rem);line-height:1.25}
-.hero p{margin:12px 0 24px;color:#d7e8dd}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-#search{flex:1;min-width:200px;padding:13px 16px;border:0;border-radius:6px;font:inherit}
-#random{background:var(--azalea);color:#fff;border:0;border-radius:6px;padding:13px 22px;font:inherit;font-weight:700;cursor:pointer}
-#random:hover{background:#b82a5c}
-main{padding:28px 16px}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.chip{border:1px solid var(--line);background:#fff;padding:5px 14px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer}
-.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
-.chip:focus-visible,#random:focus-visible,#search:focus-visible{outline:3px solid var(--azalea);outline-offset:2px}
-#count{margin:18px 0 6px;color:var(--sub);font-size:.9rem}
-.item{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
-.item img,.ph{width:96px;height:96px;flex:none;border-radius:6px;object-fit:cover}
-.ph{display:grid;place-items:center;font-size:2.2rem;background:var(--tint)}
-.body{min-width:0}
-.body h3{font-family:"Noto Serif KR",serif;font-size:1.2rem}
-.tag{font-size:.85rem;color:var(--azalea);font-weight:700}
-.body p{font-size:.93rem}
-.meta{color:var(--sub)}
-.body a{color:var(--green);font-weight:700}
-.empty{padding:40px 0;color:var(--sub)}
-footer{padding:24px 16px;color:var(--sub);font-size:.85rem}
-.hero{transition:background .25s}
-body[data-tab="bar"] .hero{background:#2b2236}
-body[data-tab="bar"] .hero p{color:#d9cfe6}
-.tabs{display:flex;gap:4px;padding:0 16px;border-bottom:1px solid var(--line)}
-.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:14px 20px;font:inherit;color:var(--sub);cursor:pointer}
-.tabs button[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--azalea)}
-.tabs button:focus-visible{outline:3px solid var(--azalea);outline-offset:-3px}
-.lab{font-size:.8rem;color:var(--sub);min-width:2.4em;align-self:center}
-#notice{background:var(--tint);border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:.88rem}
+  background: #342e37;
+  color: #f7f3f6;
+}
+
+body[data-tab="bar"] .hero p {
+  color: #d4cbd5;
+}
+
+body[data-tab="bar"] #search {
+  border-color: #d8cfd9;
+}
+
+body[data-tab="bar"] #random {
+  border-color: #765b73;
+  background: #765b73;
+}
+
+body[data-tab="bar"] #random:hover {
+  border-color: #60485e;
+  background: #60485e;
+}
+
+/* 키보드 탐색 시 현재 위치가 분명하게 보이도록 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* 작은 화면 */
+@media (max-width: 640px) {
+  .wrap {
+    width: min(100% - 32px, 920px);
+  }
+
+  .hero {
+    padding: 35px 0 29px;
+  }
+
+  .hero p {
+    margin: 10px 0 18px;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 23px 0 38px;
+  }
+
+  .tabs button {
+    min-width: 78px;
+    padding: 12px 16px 11px;
+  }
+
+  #filters {
+    gap: 9px;
+    margin-bottom: 19px;
+  }
+
+  .filters {
+    gap: 5px;
+  }
+
+  .lab {
+    flex-basis: 100%;
+    margin-bottom: 1px;
+  }
+
+  .item {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 13px;
+    padding: 16px 2px;
+  }
+
+  .item img,
+  .ph {
+    width: 88px;
+    height: 88px;
+  }
+
+  .body h3 {
+    font-size: 1rem;
+  }
+
+  .body p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .wrap {
+    width: calc(100% - 28px);
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  #search,
+  #random {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .item {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .item img,
+  .ph {
+    width: 76px;
+    height: 76px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
